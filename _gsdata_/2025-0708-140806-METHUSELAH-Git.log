@@ -1,0 +1,26 @@
+2025-07-08 14:08:06: -- Analysis Started by User Command
+2025-07-08 14:08:06: L: Reading State File H:/Unity/Meta QR Native/_gsdata_/_file_state_v4._gs
+2025-07-08 14:08:07: R: Reading State File H:/Unity/Unity Native AR LAb Tour - 07 2025/_gsdata_/_file_state_v4._gs
+2025-07-08 14:08:07: R: State file does not exist: H:/Unity/Unity Native AR LAb Tour - 07 2025/_gsdata_/_file_state_v4._gs
+2025-07-08 14:08:08: /.git/config: Warning: Older file to replace Newer file
+2025-07-08 14:08:08: /.git/description: Warning: Older file to replace Newer file
+2025-07-08 14:08:08: /.git/FETCH_HEAD: Warning: Older file to replace Newer file
+2025-07-08 14:08:08: /.git/HEAD: Warning: Older file to replace Newer file
+2025-07-08 14:08:08: /.git/hooks/applypatch-msg.sample: Warning: Older file to replace Newer file
+2025-07-08 14:08:08: /.git/hooks/commit-msg.sample: Warning: Older file to replace Newer file
+2025-07-08 14:08:08: /.git/hooks/fsmonitor-watchman.sample: Warning: Older file to replace Newer file
+2025-07-08 14:08:08: /.git/hooks/post-update.sample: Warning: Older file to replace Newer file
+2025-07-08 14:08:08: /.git/hooks/pre-applypatch.sample: Warning: Older file to replace Newer file
+2025-07-08 14:08:08: /.git/hooks/pre-commit.sample: Warning: Older file to replace Newer file
+2025-07-08 14:08:08: /.git/hooks/pre-merge-commit.sample: Warning: Older file to replace Newer file
+2025-07-08 14:08:08: /.git/hooks/pre-push.sample: Warning: Older file to replace Newer file
+2025-07-08 14:08:08: /.git/hooks/pre-rebase.sample: Warning: Older file to replace Newer file
+2025-07-08 14:08:08: /.git/hooks/pre-receive.sample: Warning: Older file to replace Newer file
+2025-07-08 14:08:08: /.git/hooks/prepare-commit-msg.sample: Warning: Older file to replace Newer file
+2025-07-08 14:08:08: /.git/hooks/push-to-checkout.sample: Warning: Older file to replace Newer file
+2025-07-08 14:08:08: /.git/hooks/sendemail-validate.sample: Warning: Older file to replace Newer file
+2025-07-08 14:08:08: /.git/hooks/update.sample: Warning: Older file to replace Newer file
+2025-07-08 14:08:08: /.git/info/exclude: Warning: Older file to replace Newer file
+2025-07-08 14:08:08: Changes: 55,241, Conflicts: 0, CopyTime: 0, FixState: 9, Errors: 0, All: 55272
+2025-07-08 14:08:08: Left to Right: Copy File: 55241 
+2025-07-08 14:08:08: -- Analysis Complete. Time 00:00:02, Speed: 27K files/s
