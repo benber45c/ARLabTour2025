@@ -12,6 +12,7 @@ ObjectSpawnerOnQR.cs
 
 QuestCameraKit-main
     -Existing sample project used to implement functions
+        - Assets\QuestCameraKit-main\Unity-QuestVisionKit\Assets\Samples\3 QRCodeTracking
 
 # Issues
 - Sample QR code scanner in QuestCameraKit-main does not read QR codes at the moment. Think has to do with the required permissions pop up not appearing - is settable in code, or under the OVRcamera prefab in Unity.
