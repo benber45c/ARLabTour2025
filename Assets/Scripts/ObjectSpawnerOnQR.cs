@@ -1,14 +1,8 @@
 using System.Collections.Generic;
-using PassthroughCameraSamples;
-using System.Threading.Tasks;
-using UnityEngine.Rendering;
 using UnityEngine;
-using System;
+using PassthroughCameraSamples;
+
 #if ZXING_ENABLED
-using ZXing;
-using ZXing.Common;
-using ZXing.QrCode;
-using ZXing.Multi;
 public class ObjectSpawnerOnQR : MonoBehaviour
 {
     // A helper class to create a mapping in the Inspector between
@@ -43,22 +37,34 @@ public class ObjectSpawnerOnQR : MonoBehaviour
         }
     }
 
-    // This public method will be connected to the QRCodeScanner's UnityEvent.
-    // The 'QRCode' type here should now correctly resolve to 'QuestCameraKit.QRCode'.
-    public void OnQRCodeDetected(Result qrCode)
+    // Update the parameter type to match the QrCodeResult from the QuestCameraKit sample
+    public void OnQRCodeDetected(QrCodeResult qrCode)
     {
-        string decodedText = qrCode.Text; 
+        string decodedText = qrCode.text;
 
-        // Check if a prefab associated with this QR code's text.
         if (_prefabDictionary.TryGetValue(decodedText, out GameObject prefabToSpawn))
         {
-            // Check heck if already spawned an object for this text.
             if (_spawnedObjects.TryGetValue(decodedText, out GameObject spawnedObject))
             {
-                // Update its position and rotation to match the QR code.
+                // Calculate position and rotation from QR code corners
+                Vector3 position = Vector3.zero;
+                foreach (var corner in qrCode.corners)
+                {
+                    position += corner;
+                }
+                position /= qrCode.corners.Length;
+
+                // Calculate rotation from QR code corners
+                Vector3 forward = Vector3.Cross(
+                    qrCode.corners[1] - qrCode.corners[0],
+                    qrCode.corners[3] - qrCode.corners[0]
+                ).normalized;
+
+                Vector3 up = (qrCode.corners[1] - qrCode.corners[0]).normalized;
+
                 spawnedObject.transform.SetPositionAndRotation(
-                    qrCode.WorldMatrix.GetColumn(3), // Position
-                    Quaternion.LookRotation(qrCode.WorldMatrix.GetColumn(2), -qrCode.WorldMatrix.GetColumn(1)) // Rotation
+                    position,
+                    Quaternion.LookRotation(forward, up)
                 );
             }
             else
@@ -66,10 +72,24 @@ public class ObjectSpawnerOnQR : MonoBehaviour
                 // If this is a new QR code and hasn't spawned an object yet, instantiate it.
                 Debug.Log($"Found new QR Code with text: '{decodedText}'. Spawning object.");
 
+                Vector3 position = Vector3.zero;
+                foreach (var corner in qrCode.corners)
+                {
+                    position += corner;
+                }
+                position /= qrCode.corners.Length;
+
+                Vector3 forward = Vector3.Cross(
+                    qrCode.corners[1] - qrCode.corners[0],
+                    qrCode.corners[3] - qrCode.corners[0]
+                ).normalized;
+
+                Vector3 up = (qrCode.corners[1] - qrCode.corners[0]).normalized;
+
                 GameObject newObject = Instantiate(
                     prefabToSpawn,
-                    qrCode.WorldMatrix.GetColumn(3), // Position
-                    Quaternion.LookRotation(qrCode.WorldMatrix.GetColumn(2), -qrCode.WorldMatrix.GetColumn(1)) // Rotation
+                    position,
+                    Quaternion.LookRotation(forward, up)
                 );
 
                 // Add the newly spawned object to tracking dictionary.
@@ -77,5 +97,5 @@ public class ObjectSpawnerOnQR : MonoBehaviour
             }
         }
     }
-#endif
 }
+#endif
