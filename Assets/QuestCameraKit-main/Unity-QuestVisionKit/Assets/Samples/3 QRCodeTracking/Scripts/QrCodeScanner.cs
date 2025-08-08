@@ -3,6 +3,7 @@ using PassthroughCameraSamples;
 using System.Threading.Tasks;
 using UnityEngine.Rendering;
 using UnityEngine;
+using UnityEngine.Events; // ADD THIS LINE
 using System;
 #if ZXING_ENABLED
 using ZXing;
@@ -211,6 +212,34 @@ public class QrCodeScanner : MonoBehaviour
             }
         });
         return tcs.Task;
+    }
+
+    private void Start()
+    {
+    }
+
+    private void Update()
+    {
+    }
+
+    private async Task ScanAndProcessAsync()
+    {
+        try
+        {
+            var results = await ScanFrameAsync();
+            
+            if (results != null && results.Length > 0)
+            {
+                foreach (var result in results)
+                {
+                    Debug.Log($"QR Code detected: {result.text}");
+                }
+            }
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError($"Error during QR scanning: {ex.Message}");
+        }
     }
 #endif
 }

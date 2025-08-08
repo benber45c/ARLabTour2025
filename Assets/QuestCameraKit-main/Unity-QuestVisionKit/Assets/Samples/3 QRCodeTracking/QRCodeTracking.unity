@@ -1069,7 +1069,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cc5c234723e3a54d8dd09b131117743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshType: 1
+  _meshType: 5
 --- !u!114 &184426334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1100,7 +1100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2609c54f376cffc4da1ab9401cc1a36f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skeletonType: 1
+  _skeletonType: 5
   _updateRootPose: 0
   _updateRootScale: 1
   _enablePhysicsCapsules: 0
@@ -3245,7 +3245,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e933e81d3c20c74ea6fdc708a67e3a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useRecommendedMSAALevel: 1
   _monoscopic: 0
   _sharpenType: 0
   _enableDynamicResolution: 1
@@ -3294,7 +3293,7 @@ MonoBehaviour:
   mrcActivationMode: 0
   launchSimultaneousHandsControllersOnStartup: 0
   isInsightPassthroughEnabled: 1
-  shouldBoundaryVisibilityBeSuppressed: 1
+  shouldBoundaryVisibilityBeSuppressed: 0
   requestBodyTrackingPermissionOnStartup: 0
   requestFaceTrackingPermissionOnStartup: 0
   requestEyeTrackingPermissionOnStartup: 0
@@ -5470,7 +5469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectionSurfaceType: 0
-  overlayType: 1
+  overlayType: 2
   compositionDepth: 0
   hidden: 0
   overridePerLayerColorScaleAndOffset: 0
@@ -7178,7 +7177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cc5c234723e3a54d8dd09b131117743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshType: 0
+  _meshType: 4
 --- !u!114 &1240878987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7209,7 +7208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2609c54f376cffc4da1ab9401cc1a36f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skeletonType: 0
+  _skeletonType: 4
   _updateRootPose: 0
   _updateRootScale: 1
   _enablePhysicsCapsules: 0
@@ -9904,6 +9903,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1107174352770321070, guid: f8946cdaea9aa4415ba3d25b33c16b9c, type: 3}
+      propertyPath: poolSize
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3180484904461471006, guid: f8946cdaea9aa4415ba3d25b33c16b9c, type: 3}
       propertyPath: m_Name
       value: QRCodeScanner
@@ -11575,6 +11578,63 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.008180305, y: -0.0053694975, z: -0.020344593}
     m_Extent: {x: 0.046097822, y: 0.067293465, z: 0.0557265}
   m_DirtyAABB: 0
+--- !u!1001 &2886171592474891147
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3374708160468574064, guid: 52ca0cee09e76dd4f8f9a40fc8927a64, type: 3}
+      propertyPath: m_Name
+      value: Cube
+      objectReference: {fileID: 0}
+    - target: {fileID: 6949385771315211332, guid: 52ca0cee09e76dd4f8f9a40fc8927a64, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6949385771315211332, guid: 52ca0cee09e76dd4f8f9a40fc8927a64, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6949385771315211332, guid: 52ca0cee09e76dd4f8f9a40fc8927a64, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6949385771315211332, guid: 52ca0cee09e76dd4f8f9a40fc8927a64, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6949385771315211332, guid: 52ca0cee09e76dd4f8f9a40fc8927a64, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6949385771315211332, guid: 52ca0cee09e76dd4f8f9a40fc8927a64, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6949385771315211332, guid: 52ca0cee09e76dd4f8f9a40fc8927a64, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6949385771315211332, guid: 52ca0cee09e76dd4f8f9a40fc8927a64, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6949385771315211332, guid: 52ca0cee09e76dd4f8f9a40fc8927a64, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6949385771315211332, guid: 52ca0cee09e76dd4f8f9a40fc8927a64, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 52ca0cee09e76dd4f8f9a40fc8927a64, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -11584,3 +11644,4 @@ SceneRoots:
   - {fileID: 911098802}
   - {fileID: 2120672013}
   - {fileID: 1727416009}
+  - {fileID: 2886171592474891147}

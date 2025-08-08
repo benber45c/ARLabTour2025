@@ -1,0 +1,2 @@
+H:\Unity\2025ARLabTourGit\Unity Native AR LAb Tour - 07 2025\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\CMakeLists.txt
+H:\Unity\2025ARLabTourGit\Unity Native AR LAb Tour - 07 2025\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\CMakeLists.txt

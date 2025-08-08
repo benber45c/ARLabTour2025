@@ -14,33 +14,35 @@ public class ObjectSpawnerOnQR : MonoBehaviour
         public GameObject PrefabToSpawn;
     }
 
-    [Tooltip("Define the mapping between QR code content and the prefabs to spawn.")]
+    [Tooltip("Populate this array in inspector with QRCodeMapping scriptable objects.")]
     [SerializeField]
-    private List<QRCodePrefabMapping> qrCodeMappings;
+    private QRCodeMapping[] qrCodeMappings; // Use QRCodeMapping consistently
 
     // A dictionary for lookups of prefabs by their QR code text.
     private Dictionary<string, GameObject> _prefabDictionary = new Dictionary<string, GameObject>();
 
     // A dictionary to track the objects already spawned for each QR code text,
-    // preventing duplicate spawning.
     private Dictionary<string, GameObject> _spawnedObjects = new Dictionary<string, GameObject>();
 
     void Awake()
     {
-        // Populate the prefab dictionary from Inspector list for quick lookups later.
-        foreach (var mapping in qrCodeMappings)
+        foreach (QRCodeMapping mapping in qrCodeMappings)
         {
-            if (!string.IsNullOrEmpty(mapping.QRCodeText) && !_prefabDictionary.ContainsKey(mapping.QRCodeText))
+            if (!string.IsNullOrEmpty(mapping.qrCodeString) && !_prefabDictionary.ContainsKey(mapping.qrCodeString))
             {
-                _prefabDictionary.Add(mapping.QRCodeText, mapping.PrefabToSpawn);
+                _prefabDictionary.Add(mapping.qrCodeString, mapping.associatedPrefab);
+                Debug.Log($"Added QR mapping: '{mapping.qrCodeString}' -> {mapping.associatedPrefab.name}");
             }
         }
+        
+        Debug.Log($"ObjectSpawnerOnQR initialized with {_prefabDictionary.Count} mappings");
     }
 
     // Update the parameter type to match the QrCodeResult from the QuestCameraKit sample
     public void OnQRCodeDetected(QrCodeResult qrCode)
     {
         string decodedText = qrCode.text;
+        Debug.Log($"Processing QR Code: '{decodedText}'");
 
         if (_prefabDictionary.TryGetValue(decodedText, out GameObject prefabToSpawn))
         {
@@ -95,6 +97,10 @@ public class ObjectSpawnerOnQR : MonoBehaviour
                 // Add the newly spawned object to tracking dictionary.
                 _spawnedObjects.Add(decodedText, newObject);
             }
+        }
+        else
+        {
+            Debug.LogWarning($"No prefab mapping found for QR code text: '{decodedText}'");
         }
     }
 }
